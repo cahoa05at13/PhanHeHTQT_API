@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PhanHeHTQT.Models.TbThanhPhanThamGiaDoanCongTac>
+﻿@model PhanHeHTQT.Models.TbThanhPhanThamGiaDoanCongTac
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,42 +6,39 @@
 
 <h1>Edit</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCanBoNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdDoanCongTacNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdVaiTroThamGiaNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCanBoNavigation.IdCanBo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdDoanCongTacNavigation.IdDoanCongTac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdVaiTroThamGiaNavigation.IdVaiTroThamGia)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdThanhPhanThamGiaDoanCongTac">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdThanhPhanThamGiaDoanCongTac">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdThanhPhanThamGiaDoanCongTac">Delete</a>
-            </td>
-        </tr>
+<h4>TbThanhPhanThamGiaDoanCongTac</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdThanhPhanThamGiaDoanCongTac" />
+            <div class="form-group">
+                <label asp-for="IdDoanCongTac" class="control-label"></label>
+                <select asp-for="IdDoanCongTac" class="form-control" asp-items="ViewBag.IdDoanCongTac"></select>
+                <span asp-validation-for="IdDoanCongTac" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdCanBo" class="control-label"></label>
+                <select asp-for="IdCanBo" class="form-control" asp-items="ViewBag.IdCanBo"></select>
+                <span asp-validation-for="IdCanBo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdVaiTroThamGia" class="control-label"></label>
+                <select asp-for="IdVaiTroThamGia" class="form-control" asp-items="ViewBag.IdVaiTroThamGia"></select>
+                <span asp-validation-for="IdVaiTroThamGia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-    </tbody>
-</table>

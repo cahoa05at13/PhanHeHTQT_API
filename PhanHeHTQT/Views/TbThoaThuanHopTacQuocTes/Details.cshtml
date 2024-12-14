@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PhanHeHTQT.Models.TbThoaThuanHopTacQuocTe>
+﻿@model PhanHeHTQT.Models.TbThoaThuanHopTacQuocTe
 
 @{
     ViewData["Title"] = "Details";
@@ -6,72 +6,61 @@
 
 <h1>Details</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MaThoaThuan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenThoaThuan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NoiDungTomTat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TenToChuc)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayKyKet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SoVanBanKyKet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NgayHetHan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdQuocGiaNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaThoaThuan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenThoaThuan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NoiDungTomTat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenToChuc)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayKyKet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SoVanBanKyKet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayHetHan)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdQuocGiaNavigation.IdQuocTich)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdThoaThuanHopTacQuocTe">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdThoaThuanHopTacQuocTe">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdThoaThuanHopTacQuocTe">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div>
+    <h4>TbThoaThuanHopTacQuocTe</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MaThoaThuan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MaThoaThuan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TenThoaThuan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TenThoaThuan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NoiDungTomTat)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NoiDungTomTat)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TenToChuc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TenToChuc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NgayKyKet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NgayKyKet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SoVanBanKyKet)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SoVanBanKyKet)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NgayHetHan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NgayHetHan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdQuocGiaNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdQuocGiaNavigation.IdQuocTich)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdThoaThuanHopTacQuocTe">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
