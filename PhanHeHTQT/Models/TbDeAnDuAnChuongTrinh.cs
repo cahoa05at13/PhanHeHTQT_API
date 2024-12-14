@@ -25,12 +25,10 @@ public partial class TbDeAnDuAnChuongTrinh
     public string? MucTieu { get; set; }
     [Display(Name = "Thời gian hợp tác từ")]
     [DataType(DataType.Date)]
-
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
     public DateOnly? ThoiGianHopTacTu { get; set; }
     [Display(Name = "Thời gian hợp tác đến")]
     [DataType(DataType.Date)]
-
     [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
     public DateOnly? ThoiGianHopTacDen { get; set; }
     [Display(Name = "Tổng kinh phí")]
