@@ -24,7 +24,7 @@ namespace PhanHeHTQT.Controllers.HTQT
         private async Task<List<TbThoaThuanHopTacQuocTe>> TbThoaThuanHopTacQuocTes()
         {
             List<TbThoaThuanHopTacQuocTe> tbThoaThuanHopTacQuocTes = await ApiServices_.GetAll<TbThoaThuanHopTacQuocTe>("/api/htqt/ThoaThuanHopTacQuocTe");
-            List<DmQuocTich> dmQuocTiches = await ApiServices_.GetAll<DmQuocTich>("/api/htqt/QuocTich");
+            List<DmQuocTich> dmQuocTiches = await ApiServices_.GetAll<DmQuocTich>("/api/dm/QuocTich");
             tbThoaThuanHopTacQuocTes.ForEach(item =>
             {
                 item.IdQuocGiaNavigation = dmQuocTiches.FirstOrDefault(x => x.IdQuocTich == item.IdQuocGia);
