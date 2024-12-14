@@ -95,7 +95,7 @@ namespace PhanHeHTQT.Controllers.HTQT
         {
             try
             {
-                ViewData["IdNguonKinhPhiDeAnDuAnChuongTrinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoDeAn>("/api/dm/NguonKinhPhiChoDeAn"), "IdNguonKinhPhiChoDeAn", "IdNguonKinhPhiChoDeAn");
+                ViewData["IdNguonKinhPhiDeAnDuAnChuongTrinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoDeAn>("/api/dm/NguonKinhPhiChoDeAn"), "IdNguonKinhPhiChoDeAn", "NguonKinhPhiChoDeAn");
                 return View();
             }
             catch (Exception ex)
@@ -119,7 +119,7 @@ namespace PhanHeHTQT.Controllers.HTQT
                     await ApiServices_.Create<TbDeAnDuAnChuongTrinh>("/api/htqt/DeAnDuAnChuongTrinh", tbDeAnDuAnChuongTrinh);
                     return RedirectToAction(nameof(Index));
                 }
-                ViewData["IdNguonKinhPhiDeAnDuAnChuongTrinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoDeAn>("/api/htqt/DeAnDuAnChuongTrinh"), "IdNguonKinhPhiChoDeAn", "IdNguonKinhPhiChoDeAn", tbDeAnDuAnChuongTrinh.IdNguonKinhPhiDeAnDuAnChuongTrinh);
+                ViewData["IdNguonKinhPhiDeAnDuAnChuongTrinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoDeAn>("/api/htqt/DeAnDuAnChuongTrinh"), "IdNguonKinhPhiChoDeAn", "NguonKinhPhiChoDeAn", tbDeAnDuAnChuongTrinh.IdNguonKinhPhiDeAnDuAnChuongTrinh);
                 return View(tbDeAnDuAnChuongTrinh);
             }
             catch (Exception ex)
@@ -142,7 +142,7 @@ namespace PhanHeHTQT.Controllers.HTQT
             {
                 return NotFound();
             }
-            ViewData["IdNguonKinhPhiDeAnDuAnChuongTrinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoDeAn>("/api/htqt/DeAnDuAnChuongTrinh"), "IdNguonKinhPhiChoDeAn", "IdNguonKinhPhiChoDeAn", tbDeAnDuAnChuongTrinh.IdNguonKinhPhiDeAnDuAnChuongTrinh);
+            ViewData["IdNguonKinhPhiDeAnDuAnChuongTrinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoDeAn>("/api/dm/NguonKinhPhiChoDeAn"), "IdNguonKinhPhiChoDeAn", "NguonKinhPhiChoDeAn");
             return View(tbDeAnDuAnChuongTrinh);
         }
 
@@ -179,7 +179,7 @@ namespace PhanHeHTQT.Controllers.HTQT
                     }
                     return RedirectToAction(nameof(Index));
                 }
-                ViewData["IdNguonKinhPhiDeAnDuAnChuongTrinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoDeAn>("/api/htqt/DeAnDuAnChuongTrinh"), "IdNguonKinhPhiChoDeAn", "IdNguonKinhPhiChoDeAn", tbDeAnDuAnChuongTrinh.IdNguonKinhPhiDeAnDuAnChuongTrinh);
+                ViewData["IdNguonKinhPhiDeAnDuAnChuongTrinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoDeAn>("/api/htqt/DeAnDuAnChuongTrinh"), "IdNguonKinhPhiChoDeAn", "NguonKinhPhiChoDeAn", tbDeAnDuAnChuongTrinh.IdNguonKinhPhiDeAnDuAnChuongTrinh);
                 return View(tbDeAnDuAnChuongTrinh);
             } 
             catch (Exception ex){

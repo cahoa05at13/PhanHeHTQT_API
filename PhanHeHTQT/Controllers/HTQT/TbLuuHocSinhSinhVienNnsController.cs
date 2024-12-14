@@ -65,8 +65,8 @@ namespace PhanHeHTQT.Controllers.HTQT
         // GET: TbLuuHocSinhSinhVienNns/Create
         public async Task<IActionResult> Create()
         {
-            ViewData["IdLoaiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiLuuHocSinh>("/api/dm/LoaiLuuHocSinh"), "IdLoaiLuuHocSinh", "IdLoaiLuuHocSinh");
-            ViewData["IdNguonKinhPhiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoLuuHocSinh>("/api/dm/NguonKinhPhiChoLuuHocSinh"), "IdNguonKinhPhiChoLuuHocSinh", "IdNguonKinhPhiChoLuuHocSinh");
+            ViewData["IdLoaiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiLuuHocSinh>("/api/dm/LoaiLuuHocSinh"), "IdLoaiLuuHocSinh", "LoaiLuuHocSinh");
+            ViewData["IdNguonKinhPhiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoLuuHocSinh>("/api/dm/NguonKinhPhiChoLuuHocSinh"), "IdNguonKinhPhiChoLuuHocSinh", "NguonKinhPhiChoLuuHocSinh");
             return View();
         }
 
@@ -83,8 +83,8 @@ namespace PhanHeHTQT.Controllers.HTQT
                 await ApiServices_.Create<TbLuuHocSinhSinhVienNn>("/api/htqt/LuuHocSinhSinhVienNn", tbLuuHocSinhSinhVienNn);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdLoaiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiLuuHocSinh>("/api/dm/LoaiLuuHocSinh"), "IdLoaiLuuHocSinh", "IdLoaiLuuHocSinh", tbLuuHocSinhSinhVienNn.IdLoaiLuuHocSinh);
-            ViewData["IdNguonKinhPhiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoLuuHocSinh>("/api/dm/NguonKinhPhiChoLuuHocSinh"), "IdNguonKinhPhiChoLuuHocSinh", "IdNguonKinhPhiChoLuuHocSinh", tbLuuHocSinhSinhVienNn.IdNguonKinhPhiLuuHocSinh);
+            ViewData["IdLoaiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiLuuHocSinh>("/api/dm/LoaiLuuHocSinh"), "IdLoaiLuuHocSinh", "LoaiLuuHocSinh", tbLuuHocSinhSinhVienNn.IdLoaiLuuHocSinh);
+            ViewData["IdNguonKinhPhiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoLuuHocSinh>("/api/dm/NguonKinhPhiChoLuuHocSinh"), "IdNguonKinhPhiChoLuuHocSinh", "NguonKinhPhiChoLuuHocSinh", tbLuuHocSinhSinhVienNn.IdNguonKinhPhiLuuHocSinh);
             return View(tbLuuHocSinhSinhVienNn);
         }
 
@@ -101,8 +101,8 @@ namespace PhanHeHTQT.Controllers.HTQT
             {
                 return NotFound();
             }
-            ViewData["IdLoaiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiLuuHocSinh>("/api/dm/LoaiLuuHocSinh"), "IdLoaiLuuHocSinh", "IdLoaiLuuHocSinh", tbLuuHocSinhSinhVienNn.IdLoaiLuuHocSinh);
-            ViewData["IdNguonKinhPhiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoLuuHocSinh>("/api/dm/NguonKinhPhiChoLuuHocSinh"), "IdNguonKinhPhiChoLuuHocSinh", "IdNguonKinhPhiChoLuuHocSinh", tbLuuHocSinhSinhVienNn.IdNguonKinhPhiLuuHocSinh);
+            ViewData["IdLoaiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiLuuHocSinh>("/api/dm/LoaiLuuHocSinh"), "IdLoaiLuuHocSinh", "LoaiLuuHocSinh", tbLuuHocSinhSinhVienNn.IdLoaiLuuHocSinh);
+            ViewData["IdNguonKinhPhiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoLuuHocSinh>("/api/dm/NguonKinhPhiChoLuuHocSinh"), "IdNguonKinhPhiChoLuuHocSinh", "NguonKinhPhiChoLuuHocSinh", tbLuuHocSinhSinhVienNn.IdNguonKinhPhiLuuHocSinh);
             return View(tbLuuHocSinhSinhVienNn);
         }
 
@@ -137,8 +137,8 @@ namespace PhanHeHTQT.Controllers.HTQT
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdLoaiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiLuuHocSinh>("/api/dm/LoaiLuuHocSinh"), "IdLoaiLuuHocSinh", "IdLoaiLuuHocSinh", tbLuuHocSinhSinhVienNn.IdLoaiLuuHocSinh);
-            ViewData["IdNguonKinhPhiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoLuuHocSinh>("/api/dm/NguonKinhPhiChoLuuHocSinh"), "IdNguonKinhPhiChoLuuHocSinh", "IdNguonKinhPhiChoLuuHocSinh", tbLuuHocSinhSinhVienNn.IdNguonKinhPhiLuuHocSinh);
+            ViewData["IdLoaiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmLoaiLuuHocSinh>("/api/dm/LoaiLuuHocSinh"), "IdLoaiLuuHocSinh", "LoaiLuuHocSinh", tbLuuHocSinhSinhVienNn.IdLoaiLuuHocSinh);
+            ViewData["IdNguonKinhPhiLuuHocSinh"] = new SelectList(await ApiServices_.GetAll<DmNguonKinhPhiChoLuuHocSinh>("/api/dm/NguonKinhPhiChoLuuHocSinh"), "IdNguonKinhPhiChoLuuHocSinh", "NguonKinhPhiChoLuuHocSinh", tbLuuHocSinhSinhVienNn.IdNguonKinhPhiLuuHocSinh);
             return View(tbLuuHocSinhSinhVienNn);
         }
 

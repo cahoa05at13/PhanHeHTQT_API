@@ -92,8 +92,8 @@ namespace PhanHeHTQT.Controllers.HTQT
         public async Task<IActionResult> Create()
         {
             try {
-                ViewData["IdPhanLoaiDoanRaDoanVao"] = new SelectList(await ApiServices_.GetAll<DmPhanLoaiDoanRaDoanVao>("/api/dm/PhanLoaiDoanRaDoanVao"), "IdPhanLoaiDoanRaDoanVao", "IdPhanLoaiDoanRaDoanVao");
-                ViewData["IdQuocGiaDoan"] = new SelectList(await ApiServices_.GetAll<DmQuocTich>("/api/dm/QuocTich"), "IdQuocTich", "IdQuocTich");
+                ViewData["IdPhanLoaiDoanRaDoanVao"] = new SelectList(await ApiServices_.GetAll<DmPhanLoaiDoanRaDoanVao>("/api/dm/PhanLoaiDoanRaDoanVao"), "IdPhanLoaiDoanRaDoanVao", "PhanLoaiDoanRaDoanVao");
+                ViewData["IdQuocGiaDoan"] = new SelectList(await ApiServices_.GetAll<DmQuocTich>("/api/dm/QuocTich"), "IdQuocTich", "TenNuoc");
                 return View();
             } 
             catch (Exception ex)
@@ -117,8 +117,8 @@ namespace PhanHeHTQT.Controllers.HTQT
                     await ApiServices_.Create<TbDoanCongTac>("/api/htqt/DoanCongTac", tbDoanCongTac);
                     return RedirectToAction(nameof(Index));
                 }
-                ViewData["IdPhanLoaiDoanRaDoanVao"] = new SelectList(await ApiServices_.GetAll<DmPhanLoaiDoanRaDoanVao>("/api/dm/PhanLoaiDoanRaDoanVao"), "IdPhanLoaiDoanRaDoanVao", "IdPhanLoaiDoanRaDoanVao", tbDoanCongTac.IdPhanLoaiDoanRaDoanVao);
-                ViewData["IdQuocGiaDoan"] = new SelectList(await ApiServices_.GetAll<DmQuocTich>("/api/dm/QuocTich"), "IdQuocTich", "IdQuocTich", tbDoanCongTac.IdQuocGiaDoan);
+                ViewData["IdPhanLoaiDoanRaDoanVao"] = new SelectList(await ApiServices_.GetAll<DmPhanLoaiDoanRaDoanVao>("/api/dm/PhanLoaiDoanRaDoanVao"), "IdPhanLoaiDoanRaDoanVao", "PhanLoaiDoanRaDoanVao", tbDoanCongTac.IdPhanLoaiDoanRaDoanVao);
+                ViewData["IdQuocGiaDoan"] = new SelectList(await ApiServices_.GetAll<DmQuocTich>("/api/dm/QuocTich"), "IdQuocTich", "TenNuoc", tbDoanCongTac.IdQuocGiaDoan);
                 return View(tbDoanCongTac);
             }
             catch (Exception ex)
@@ -142,8 +142,8 @@ namespace PhanHeHTQT.Controllers.HTQT
                 {
                     return NotFound();
                 }
-                ViewData["IdPhanLoaiDoanRaDoanVao"] = new SelectList(await ApiServices_.GetAll<DmPhanLoaiDoanRaDoanVao>("/api/dm/PhanLoaiDoanRaDoanVao"), "IdPhanLoaiDoanRaDoanVao", "IdPhanLoaiDoanRaDoanVao", tbDoanCongTac.IdPhanLoaiDoanRaDoanVao);
-                ViewData["IdQuocGiaDoan"] = new SelectList(await ApiServices_.GetAll<DmQuocTich>("/api/dm/QuocTich"), "IdQuocTich", "IdQuocTich", tbDoanCongTac.IdQuocGiaDoan);
+                ViewData["IdPhanLoaiDoanRaDoanVao"] = new SelectList(await ApiServices_.GetAll<DmPhanLoaiDoanRaDoanVao>("/api/dm/PhanLoaiDoanRaDoanVao"), "IdPhanLoaiDoanRaDoanVao", "PhanLoaiDoanRaDoanVao", tbDoanCongTac.IdPhanLoaiDoanRaDoanVao);
+                ViewData["IdQuocGiaDoan"] = new SelectList(await ApiServices_.GetAll<DmQuocTich>("/api/dm/QuocTich"), "IdQuocTich", "TenNuoc", tbDoanCongTac.IdQuocGiaDoan);
                 return View(tbDoanCongTac);
             }
             catch (Exception ex)
@@ -186,8 +186,8 @@ namespace PhanHeHTQT.Controllers.HTQT
                     }
                     return RedirectToAction(nameof(Index));
                 }
-                ViewData["IdPhanLoaiDoanRaDoanVao"] = new SelectList(await ApiServices_.GetAll<DmPhanLoaiDoanRaDoanVao>("/api/dm/PhanLoaiDoanRaDoanVao"), "IdPhanLoaiDoanRaDoanVao", "IdPhanLoaiDoanRaDoanVao", tbDoanCongTac.IdPhanLoaiDoanRaDoanVao);
-                ViewData["IdQuocGiaDoan"] = new SelectList(await ApiServices_.GetAll<DmQuocTich>("/api/dm/QuocTich"), "IdQuocTich", "IdQuocTich", tbDoanCongTac.IdQuocGiaDoan);
+                ViewData["IdPhanLoaiDoanRaDoanVao"] = new SelectList(await ApiServices_.GetAll<DmPhanLoaiDoanRaDoanVao>("/api/dm/PhanLoaiDoanRaDoanVao"), "IdPhanLoaiDoanRaDoanVao", "PhanLoaiDoanRaDoanVao", tbDoanCongTac.IdPhanLoaiDoanRaDoanVao);
+                ViewData["IdQuocGiaDoan"] = new SelectList(await ApiServices_.GetAll<DmQuocTich>("/api/dm/QuocTich"), "IdQuocTich", "TenNuoc", tbDoanCongTac.IdQuocGiaDoan);
                 return View(tbDoanCongTac);
             }
             catch (Exception ex)
