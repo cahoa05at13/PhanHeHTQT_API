@@ -48,6 +48,21 @@ namespace PhanHeHTQT.Controllers.HTQT
                 return BadRequest();
             }
         }
+        public async Task<IActionResult> Statistics()
+        {
+            try
+            {
+                List<TbToChucHopTacQuocTe> getall = await ApiServices_.GetAll<TbToChucHopTacQuocTe>("/api/htqt/ToChucHopTacQuocTe");
+                // Lấy data từ các table khác có liên quan (khóa ngoài) để hiển thị trên Index
+                return View(getall);
+
+                // Bắt lỗi các trường hợp ngoại lệ
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
 
         // GET: TbToChucHopTacQuocTes/Details/5
         public async Task<IActionResult> Details(int? id)

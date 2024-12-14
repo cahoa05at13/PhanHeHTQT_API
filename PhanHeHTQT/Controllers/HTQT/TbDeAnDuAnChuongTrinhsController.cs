@@ -24,14 +24,20 @@ namespace PhanHeHTQT.Controllers.HTQT
         {
             List<TbDeAnDuAnChuongTrinh> tbDeAnDuAnChuongTrinhs = await ApiServices_.GetAll<TbDeAnDuAnChuongTrinh>("/api/htqt/DeAnDuAnChuongTrinh");
             List<DmNguonKinhPhiChoDeAn> dmNguonKinhPhiChoDeAns = await ApiServices_.GetAll<DmNguonKinhPhiChoDeAn>("/api/dm/NguonKinhPhiChoDeAn");
+
             tbDeAnDuAnChuongTrinhs.ForEach(item =>
             {
                 item.IdNguonKinhPhiDeAnDuAnChuongTrinhNavigation = dmNguonKinhPhiChoDeAns.FirstOrDefault(x => x.IdNguonKinhPhiChoDeAn == item.IdNguonKinhPhiDeAnDuAnChuongTrinh);
+                if (item.IdNguonKinhPhiDeAnDuAnChuongTrinhNavigation == null)
+                {
+                    item.IdNguonKinhPhiDeAnDuAnChuongTrinhNavigation = new DmNguonKinhPhiChoDeAn(); // Khởi tạo đối tượng mặc định nếu không tìm thấy
+                }
             });
             return tbDeAnDuAnChuongTrinhs;
         }
-            // GET: TbDeAnDuAnChuongTrinhs
-            public async Task<IActionResult> Index()
+
+        // GET: TbDeAnDuAnChuongTrinhs
+        public async Task<IActionResult> Index()
         {
             try
             {
@@ -46,7 +52,21 @@ namespace PhanHeHTQT.Controllers.HTQT
                 return BadRequest();
             }
         }
+            public async Task<IActionResult> Statistics()
+            {
+                try
+                {
+                    List<TbDeAnDuAnChuongTrinh> getall = await ApiServices_.GetAll<TbDeAnDuAnChuongTrinh>("/api/htqt/DeAnDuAnChuongTrinh");
+                    // Lấy data từ các table khác có liên quan (khóa ngoài) để hiển thị trên Index
+                    return View(getall);
 
+                    // Bắt lỗi các trường hợp ngoại lệ
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest();
+                }
+            }
         // GET: TbDeAnDuAnChuongTrinhs/Details/5
         public async Task<IActionResult> Details(int? id)
         {

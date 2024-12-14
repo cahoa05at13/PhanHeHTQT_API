@@ -52,6 +52,19 @@ namespace PhanHeHTQT.Controllers.HTQT
             }
             
         }
+        public async Task<IActionResult> Statistics()
+        {
+            try
+            {
+                List<TbGvduocCuDiDaoTao> getall = await TbGvduocCuDiDaoTaos();
+                return View(getall);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+
+        }
 
         // GET: TbGvduocCuDiDaoTaos/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -46,6 +46,18 @@ namespace PhanHeHTQT.Controllers.HTQT
                 return BadRequest();
             }
         }
+        public async Task<IActionResult> Statistics()
+        {
+            try
+            {
+                List<TbDoanCongTac> getall = await TbDoanCongTacs();
+                return View(getall);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+            }
+        }
 
         // GET: TbDoanCongTacs/Details/5
         public async Task<IActionResult> Details(int? id)

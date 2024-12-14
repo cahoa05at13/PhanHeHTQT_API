@@ -38,6 +38,11 @@ namespace PhanHeHTQT.Controllers.HTQT
             List<TbThoaThuanHopTacQuocTe> getall = await TbThoaThuanHopTacQuocTes();
             return View(getall);
         }
+        public async Task<IActionResult> Statistics()
+        {
+            List<TbThoaThuanHopTacQuocTe> getall = await TbThoaThuanHopTacQuocTes();
+            return View(getall);
+        }
 
         // GET: TbThoaThuanHopTacQuocTes/Details/5
         public async Task<IActionResult> Details(int? id)
