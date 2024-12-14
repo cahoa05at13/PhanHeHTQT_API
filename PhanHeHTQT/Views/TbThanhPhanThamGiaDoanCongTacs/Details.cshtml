@@ -1,4 +1,4 @@
-﻿@model IEnumerable<PhanHeHTQT.Models.TbThanhPhanThamGiaDoanCongTac>
+﻿@model PhanHeHTQT.Models.TbThanhPhanThamGiaDoanCongTac
 
 @{
     ViewData["Title"] = "Details";
@@ -6,42 +6,31 @@
 
 <h1>Details</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.IdCanBoNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdDoanCongTacNavigation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdVaiTroThamGiaNavigation)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdCanBoNavigation.IdCanBo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdDoanCongTacNavigation.IdDoanCongTac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdVaiTroThamGiaNavigation.IdVaiTroThamGia)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdThanhPhanThamGiaDoanCongTac">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdThanhPhanThamGiaDoanCongTac">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdThanhPhanThamGiaDoanCongTac">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div>
+    <h4>TbThanhPhanThamGiaDoanCongTac</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdCanBoNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdCanBoNavigation.IdCanBo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdDoanCongTacNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdDoanCongTacNavigation.IdDoanCongTac)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdVaiTroThamGiaNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdVaiTroThamGiaNavigation.IdVaiTroThamGia)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.IdThanhPhanThamGiaDoanCongTac">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
