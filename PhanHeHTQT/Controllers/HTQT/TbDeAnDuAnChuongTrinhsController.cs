@@ -24,14 +24,9 @@ namespace PhanHeHTQT.Controllers.HTQT
         {
             List<TbDeAnDuAnChuongTrinh> tbDeAnDuAnChuongTrinhs = await ApiServices_.GetAll<TbDeAnDuAnChuongTrinh>("/api/htqt/DeAnDuAnChuongTrinh");
             List<DmNguonKinhPhiChoDeAn> dmNguonKinhPhiChoDeAns = await ApiServices_.GetAll<DmNguonKinhPhiChoDeAn>("/api/dm/NguonKinhPhiChoDeAn");
-
             tbDeAnDuAnChuongTrinhs.ForEach(item =>
             {
                 item.IdNguonKinhPhiDeAnDuAnChuongTrinhNavigation = dmNguonKinhPhiChoDeAns.FirstOrDefault(x => x.IdNguonKinhPhiChoDeAn == item.IdNguonKinhPhiDeAnDuAnChuongTrinh);
-                if (item.IdNguonKinhPhiDeAnDuAnChuongTrinhNavigation == null)
-                {
-                    item.IdNguonKinhPhiDeAnDuAnChuongTrinhNavigation = new DmNguonKinhPhiChoDeAn(); // Khởi tạo đối tượng mặc định nếu không tìm thấy
-                }
             });
             return tbDeAnDuAnChuongTrinhs;
         }
