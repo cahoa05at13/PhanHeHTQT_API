@@ -36,7 +36,7 @@ namespace PhanHeHTQT.Controllers.HTQT
         {
             try
             {
-                List<TbDeAnDuAnChuongTrinh> getall = await ApiServices_.GetAll<TbDeAnDuAnChuongTrinh>("/api/htqt/DeAnDuAnChuongTrinh");
+                List<TbDeAnDuAnChuongTrinh> getall = await TbDeAnDuAnChuongTrinhs();
                 // Lấy data từ các table khác có liên quan (khóa ngoài) để hiển thị trên Index
                 return View(getall);
 
@@ -51,7 +51,7 @@ namespace PhanHeHTQT.Controllers.HTQT
             {
                 try
                 {
-                    List<TbDeAnDuAnChuongTrinh> getall = await ApiServices_.GetAll<TbDeAnDuAnChuongTrinh>("/api/htqt/DeAnDuAnChuongTrinh");
+                List<TbDeAnDuAnChuongTrinh> getall = await TbDeAnDuAnChuongTrinhs();
                     // Lấy data từ các table khác có liên quan (khóa ngoài) để hiển thị trên Index
                     return View(getall);
 
