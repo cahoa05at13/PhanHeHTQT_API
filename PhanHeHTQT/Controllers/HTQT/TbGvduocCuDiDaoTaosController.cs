@@ -34,7 +34,7 @@ namespace PhanHeHTQT.Controllers.HTQT
                 item.IdHinhThucThamGiaGvduocCuDiDaoTaoNavigation = dmHinhThucThamGiaGvduocCuDiDaoTaos.FirstOrDefault(x => x.IdHinhThucThamGiaGvduocCuDiDaoTao == item.IdHinhThucThamGiaGvduocCuDiDaoTao);
                 item.IdNguonKinhPhiCuaGvNavigation = dmNguonKinhPhiCuaGvduocCuDiDaoTaos.FirstOrDefault(x => x.IdNguonKinhPhiCuaGvduocCuDiDaoTao == item.IdNguonKinhPhiCuaGv);
                 item.IdQuocGiaDenNavigation = dmQuocTiches.FirstOrDefault(x => x.IdQuocTich == item.IdQuocGiaDen);
-                item.IdTinhTrangGvduocCuDiDaoTaoNavigation = dmTinhTrangGiangVienDuocCuDiDaoTaos.FirstOrDefault(x => x.IdTinhTrangGiangVienDuocCuDiDaoTao == item.IdGvduocCuDiDaoTao);
+                item.IdTinhTrangGvduocCuDiDaoTaoNavigation = dmTinhTrangGiangVienDuocCuDiDaoTaos.FirstOrDefault(x => x.IdTinhTrangGiangVienDuocCuDiDaoTao == item.IdTinhTrangGvduocCuDiDaoTao);
             });
             return tbGvduocCuDiDaoTaos;
         }

@@ -23,8 +23,8 @@ namespace PhanHeHTQT.Controllers.HTQT
         private async Task<List<TbToChucHopTacQuocTe>> TbToChucHopTacQuocTes()
         {
             List<TbToChucHopTacQuocTe> tbToChucHopTacQuocTes = await ApiServices_.GetAll<TbToChucHopTacQuocTe>("/api/htqt/ToChucHopTacQuocTe");
-            List<DmQuocTich> dmQuocTiches = await ApiServices_.GetAll<DmQuocTich>("/api/htqt/QuocTich");
-            List<DmHinhThucHopTac> dmHinhThucHopTacs = await ApiServices_.GetAll<DmHinhThucHopTac>("/api/htqt/HinhThucHopTac");
+            List<DmQuocTich> dmQuocTiches = await ApiServices_.GetAll<DmQuocTich>("/api/dm/QuocTich");
+            List<DmHinhThucHopTac> dmHinhThucHopTacs = await ApiServices_.GetAll<DmHinhThucHopTac>("/api/dm/HinhThucHopTac");
             tbToChucHopTacQuocTes.ForEach(item =>
             {
                 item.IdQuocGiaNavigation = dmQuocTiches.FirstOrDefault(x => x.IdQuocTich == item.IdQuocGia);
@@ -37,7 +37,7 @@ namespace PhanHeHTQT.Controllers.HTQT
         {
             try
             {
-                List<TbToChucHopTacQuocTe> getall = await ApiServices_.GetAll<TbToChucHopTacQuocTe>("/api/htqt/ToChucHopTacQuocTe");
+                List<TbToChucHopTacQuocTe> getall = await TbToChucHopTacQuocTes();
                 // Lấy data từ các table khác có liên quan (khóa ngoài) để hiển thị trên Index
                 return View(getall);
 
@@ -50,18 +50,18 @@ namespace PhanHeHTQT.Controllers.HTQT
         }
         public async Task<IActionResult> Statistics()
         {
-            try
-            {
-                List<TbToChucHopTacQuocTe> getall = await ApiServices_.GetAll<TbToChucHopTacQuocTe>("/api/htqt/ToChucHopTacQuocTe");
+          //  try
+          //  {
+                List<TbToChucHopTacQuocTe> getall = await TbToChucHopTacQuocTes();
                 // Lấy data từ các table khác có liên quan (khóa ngoài) để hiển thị trên Index
                 return View(getall);
 
                 // Bắt lỗi các trường hợp ngoại lệ
-            }
-            catch (Exception ex)
-            {
-                return BadRequest();
-            }
+           // }
+           // catch (Exception ex)
+           // {
+           //     return BadRequest();
+           // }
         }
 
         // GET: TbToChucHopTacQuocTes/Details/5

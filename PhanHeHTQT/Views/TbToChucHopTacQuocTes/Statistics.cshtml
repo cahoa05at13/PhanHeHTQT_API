@@ -30,15 +30,85 @@
     <title>Visualize Data Beautifully Using JS Charts</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        /* Phong cách cho nhãn */
+        label {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
 
+        /* Phong cách cho dropdown */
+        #chartDropdown {
+            width: 100%;
+            max-width: 500px; /* Giới hạn chiều rộng */
+            padding: 12px 16px;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+            border: 2px solid #ddd;
+            border-radius: 8px; /* Bo tròn góc */
+            outline: none;
+            appearance: none; /* Ẩn mũi tên mặc định trên một số trình duyệt */
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+            transition: all 0.3s ease;
+        }
+
+            /* Hiệu ứng hover */
+            #chartDropdown:hover {
+                background-color: #fff;
+                border-color: #007BFF;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Hiệu ứng khi focus */
+            #chartDropdown:focus {
+                border-color: #007BFF;
+                box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+            }
+
+            /* Tùy chỉnh các tùy chọn trong dropdown */
+            #chartDropdown option {
+                padding: 10px;
+                font-size: 14px;
+                color: #333;
+            }
+
+        /* Hiệu ứng cho tiêu đề */
+        h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+</style>
 </head>
 <body>
+    <h1>Tùy chọn hiển thị biểu đồ</h1>
 
-    <div class="popup">
-        <div class="popup" style="margin-bottom:100px">
-            <canvas id="myChart1"></canvas>
-        </div>
+    <!-- Dropdown -->
+    <label for="chartDropdown">Chọn biểu đồ để hiển thị:</label>
+    <select id="chartDropdown" style="margin-bottom:100px">
+        <option value="">-- Chọn biểu đồ --</option>
+        <option value="chart1">Biểu đồ 1: CƠ CẤU QUỐC GIA HỢP TÁC</option>
+        <option value="chart2">Biểu đồ 2: THỐNG KÊ QUỐC GIA HỢP TÁC</option>
+    </select>
+    <!-- Biểu đồ 1 -->
+    <div id="chart1" class="chart-container" style=" margin-bottom:100px">
+        <canvas id="myChart1"></canvas>
     </div>
+
+    <!-- Biểu đồ 2 -->
+    <div id="chart2" class="chart-container" style="display:none; margin-bottom:100px">
+        <canvas id="myChart2"></canvas>
+    </div>
+   
     <script>
         // Dữ liệu từ C#
         const labels = @Html.Raw(labelJson); //
@@ -82,12 +152,7 @@
         new Chart(ctx, config);
 
     </script>
-    <div class="popup" style="margin-bottom:100px; width: 100%">
-        <div class="popup">
-            <canvas id="myChart2"></canvas>
-        </div>
-    </div>
-
+    
     <script>
         let myChart = document.getElementById('myChart2').getContext('2d');
         // Global Options
@@ -169,5 +234,30 @@
             }
         });
     </script>
+    <!-- code dropdown-->
+    <script>
+        // Lấy dropdown và các container biểu đồ
+        const chartDropdown = document.getElementById('chartDropdown');
+        const chartContainers = document.querySelectorAll('.chart-container');
 
+        // Ẩn tất cả các biểu đồ khi tải lại trang
+        window.addEventListener('DOMContentLoaded', function () {
+            chartContainers.forEach(container => container.style.display = 'none');
+        });
+
+        // Lắng nghe sự kiện thay đổi trên dropdown
+        chartDropdown.addEventListener('change', function () {
+            // Ẩn tất cả các biểu đồ
+            chartContainers.forEach(container => container.style.display = 'none');
+
+            // Hiển thị biểu đồ được chọn
+            const selectedChartId = chartDropdown.value;
+            if (selectedChartId) {
+                const selectedChart = document.getElementById(selectedChartId);
+                if (selectedChart) {
+                    selectedChart.style.display = 'block';
+                }
+            }
+        });
+    </script>
 </body>

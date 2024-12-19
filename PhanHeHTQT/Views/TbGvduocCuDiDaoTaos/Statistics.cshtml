@@ -96,23 +96,116 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <style>
-        .popup {
-            margin-bottom: 100px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* Phong cách cho nhãn */
+        label {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+            display: inline-block;
         }
 
-        canvas {
-            max-width: 100%;
-            height: auto;
+        /* Phong cách cho dropdown */
+        #chartDropdown {
+            width: 100%;
+            max-width: 500px; /* Giới hạn chiều rộng */
+            padding: 12px 16px;
+            font-size: 16px;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            background-color: #f9f9f9;
+            border: 2px solid #ddd;
+            border-radius: 8px; /* Bo tròn góc */
+            outline: none;
+            appearance: none; /* Ẩn mũi tên mặc định trên một số trình duyệt */
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+            transition: all 0.3s ease;
         }
+
+            /* Hiệu ứng hover */
+            #chartDropdown:hover {
+                background-color: #fff;
+                border-color: #007BFF;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            /* Hiệu ứng khi focus */
+            #chartDropdown:focus {
+                border-color: #007BFF;
+                box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+            }
+
+            /* Tùy chỉnh các tùy chọn trong dropdown */
+            #chartDropdown option {
+                padding: 10px;
+                font-size: 14px;
+                color: #333;
+            }
+
+        /* Hiệu ứng cho tiêu đề */
+        h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
 
     </style>
 </head>
 <body>
+    <h1>Tùy chọn hiển thị biểu đồ</h1>
 
+    <!-- Dropdown -->
+    <label for="chartDropdown">Chọn biểu đồ để hiển thị:</label>
+    <select id="chartDropdown" style="margin-bottom:100px">
+        <option value="">-- Chọn biểu đồ --</option>
+        <option value="chart1">Biểu đồ 1: CƠ CẤU HÌNH THỨC CỬ ĐI ĐÀO TẠO</option>
+        <option value="chart2">Biểu đồ 2: THỐNG KÊ HÌNH THỨC CỬ ĐI ĐÀO TẠO</option>
+        <option value="chart3">Biểu đồ 3: CƠ CẤU QUỐC GIA ĐƯỢC CỬ ĐẾN</option>
+        <option value="chart4">Biểu đồ 4: THỐNG KÊ QUỐC GIA ĐƯỢC CỬ ĐẾN</option>
+        <option value="chart5">Biểu đồ 5: CƠ CẤU TÌNH TRẠNG HỌC TẬP NGHIÊN CỨU</option>
+        <option value="chart6">Biểu đồ 6: THỐNG KÊ TÌNH TRẠNG HỌC TẬP NGHIÊN CỨU</option>
+        <option value="chart7">Biểu đồ 7: CƠ CẤU NGUỒN NGÂN SÁCH</option>
+        <option value="chart8">Biểu đồ 8: THỐNG KÊ NGUỒN NGÂN SÁCH</option>
+
+    </select>
+    <!-- Biểu đồ 1 -->
+    <div id="chart1" class="chart-container" style=" margin-bottom:100px">
+        <canvas id="myChart1"></canvas>
+    </div>
+
+    <!-- Biểu đồ 2 -->
+    <div id="chart2" class="chart-container" style=" margin-bottom:100px">
+        <canvas id="myChart2"></canvas>
+    </div>
+
+    <!-- Biểu đồ 3 -->
+    <div id="chart3" class="chart-container" style=" margin-bottom:100px">
+        <canvas id="myChart3"></canvas>
+    </div>
+    <!-- Biểu đồ 4 -->
+    <div id="chart4" class="chart-container" style="display:none; margin-bottom:100px">
+        <canvas id="myChart4"></canvas>
+    </div>
+    <!-- Biểu đồ 5 -->
+    <div id="chart5" class="chart-container" style=" margin-bottom:100px">
+        <canvas id="myChart5"></canvas>
+    </div>
+    <!-- Biểu đồ 6 -->
+    <div id="chart6" class="chart-container" style="display:none; margin-bottom:100px">
+        <canvas id="myChart6"></canvas>
+    </div>
+    <!-- Biểu đồ 7 -->
+    <div id="chart7" class="chart-container" style=" margin-bottom:100px">
+        <canvas id="myChart7"></canvas>
+    </div>
+    <!-- Biểu đồ 8 -->
+    <div id="chart8" class="chart-container" style="display:none; margin-bottom:100px">
+        <canvas id="myChart8"></canvas>
+    </div>
     <div class="popup">
         <div class="popup" style="margin-bottom:100px">
             <canvas id="myChart1"></canvas>
@@ -161,21 +254,7 @@
         new Chart(ctx, config);
 
     </script>
-    <div class="popup" style="margin-bottom:100px; width: 100%">
-        <div class="popup">
-            <canvas id="myChart2"></canvas>
-        </div>
-    </div>
-    <div class="popup">
-        <div class="popup" style="margin-bottom:100px">
-            <canvas id="myChart3"></canvas>
-        </div>
-    </div>
-    <div class="popup" style="margin-bottom:100px; width: 100%">
-        <div class="popup">
-            <canvas id="myChart4"></canvas>
-        </div>
-    </div>
+    
 
     <script>
         let myChart2 = document.getElementById('myChart2').getContext('2d');
@@ -387,11 +466,7 @@
 
 
 
-    <div class="popup">
-        <div class="popup" style="margin-bottom:100px">
-            <canvas id="myChart5"></canvas>
-        </div>
-    </div>
+    
     <script>
         // Dữ liệu từ C#
         const labels5 = @Html.Raw(labelJson2); //
@@ -435,21 +510,7 @@
         new Chart(ctx5, config5);
 
     </script>
-    <div class="popup" style="margin-bottom:100px; width: 100%">
-        <div class="popup">
-            <canvas id="myChart6"></canvas>
-        </div>
-    </div>
-    <div class="popup">
-        <div class="popup" style="margin-bottom:100px">
-            <canvas id="myChart7"></canvas>
-        </div>
-    </div>
-    <div class="popup" style="margin-bottom:100px; width: 100%">
-        <div class="popup">
-            <canvas id="myChart8"></canvas>
-        </div>
-    </div>
+    
     <script>
         let myChart6 = document.getElementById('myChart6').getContext('2d');
         // Global Options
@@ -658,5 +719,33 @@
             }
         });
     </script>
+
+    <!-- code dropdown-->
+    <script>
+        // Lấy dropdown và các container biểu đồ
+        const chartDropdown = document.getElementById('chartDropdown');
+        const chartContainers = document.querySelectorAll('.chart-container');
+
+        // Ẩn tất cả các biểu đồ khi tải lại trang
+        window.addEventListener('DOMContentLoaded', function () {
+            chartContainers.forEach(container => container.style.display = 'none');
+        });
+
+        // Lắng nghe sự kiện thay đổi trên dropdown
+        chartDropdown.addEventListener('change', function () {
+            // Ẩn tất cả các biểu đồ
+            chartContainers.forEach(container => container.style.display = 'none');
+
+            // Hiển thị biểu đồ được chọn
+            const selectedChartId = chartDropdown.value;
+            if (selectedChartId) {
+                const selectedChart = document.getElementById(selectedChartId);
+                if (selectedChart) {
+                    selectedChart.style.display = 'block';
+                }
+            }
+        });
+    </script>
+
 
 </body>
