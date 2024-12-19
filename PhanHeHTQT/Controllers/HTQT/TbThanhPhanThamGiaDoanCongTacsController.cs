@@ -81,6 +81,7 @@ namespace PhanHeHTQT.Controllers.HTQT
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdThanhPhanThamGiaDoanCongTac,IdDoanCongTac,IdCanBo,IdVaiTroThamGia")] TbThanhPhanThamGiaDoanCongTac tbThanhPhanThamGiaDoanCongTac)
         {
+            if (await TbThanhPhanThamGiaDoanCongTacExists(tbThanhPhanThamGiaDoanCongTac.IdThanhPhanThamGiaDoanCongTac)) ModelState.AddModelError("IdThanhPhanThamGiaDoanCongTac", "Id này đã tồn tại!");
             if (ModelState.IsValid)
             {
                 await ApiServices_.Create<TbThanhPhanThamGiaDoanCongTac>("/api/htqt/ThanhPhanThamGiaDoanCongTac", tbThanhPhanThamGiaDoanCongTac);
